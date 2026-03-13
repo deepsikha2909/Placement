@@ -1,0 +1,13 @@
+Hello {{Contact.FirstName}},
+
+This is to confirm your registration for the course.
+
+Student Name: {{Course_Registration__c.Student_Name__c}}
+Course Type: {{Course_Registration__c.Course_Type__c}}
+Course Name: {{Course_Registration__c.Course_Name__c}}
+Registration Date: {{Course_Registration__c.Registration_Date__c}}
+
+Thank you for registering!
+
+Best regards,
+Placement Team

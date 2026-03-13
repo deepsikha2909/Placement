@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Flow to send registration email to students</description>
+    <interviewLabel>Send Student Registration Email {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Send Student Registration Email</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>LightningFlowBuilder</value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>AUTO_LAYOUT_CANVAS</value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>LightningFlowBuilder</value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Send_Email_to_Student</targetReference>
+        </connector>
+    </start>
+    <steps>
+        <name>Send_Email_to_Student</name>
+        <label>Send Email to Student</label>
+        <locationX>50</locationX>
+        <locationY>132</locationY>
+        <connector>
+            <targetReference>End</targetReference>
+        </connector>
+        <inputParameters>
+            <name>emailTemplateId</name>
+            <value>00XXXXXXXXXXXXX</value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetObjectId</name>
+            <value>$Record.Id</value>
+        </inputParameters>
+        <inputParameters>
+            <name>whatId</name>
+            <value>$Record.Id</value>
+        </inputParameters>
+    </steps>
+    <steps>
+        <name>End</name>
+        <label>Flow End</label>
+        <locationX>50</locationX>
+        <locationY>242</locationY>
+        <triggerType>End</triggerType>
+    </steps>
+</Flow>

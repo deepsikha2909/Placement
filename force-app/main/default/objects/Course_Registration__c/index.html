@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Course Registration</title>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
+<style>
+body{
+font-family: Arial;
+background:#f2f2f2;
+}
+
+.container{
+width:400px;
+margin:80px auto;
+background:white;
+padding:30px;
+border-radius:8px;
+box-shadow:0px 0px 10px gray;
+}
+
+h2{
+text-align:center;
+}
+
+input{
+width:100%;
+padding:8px;
+margin:8px 0;
+}
+
+button{
+width:100%;
+padding:10px;
+background:#0073e6;
+color:white;
+border:none;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#005bb5;
+}
+</style>
+
+<script>
+function submitForm(event) {
+  event.preventDefault();
+  // Redirect to thank you page
+  window.location.href = 'thankyou.html';
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Course Registration</h2>
+
+<form onsubmit="submitForm(event)">
+
+<input type="hidden" name="oid" value="00DgL00000K24ap">
+<input type="hidden" name="retURL" value="thankyou.html">
+<input type="hidden" name="company" value="Student">
+
+<label>First Name</label>
+<input id="first_name" maxlength="40" name="first_name" type="text">
+
+<label>Last Name</label>
+<input id="last_name" maxlength="80" name="last_name" type="text">
+
+<label>Email</label>
+<input id="email" maxlength="80" name="email" type="text">
+
+<label>Roll Number</label>
+<input id="00NgL00003K981J" maxlength="15" name="00NgL00003K981J" type="text">
+
+<label>Department Name</label>
+<input id="00NgL00003K99rp" maxlength="20" name="00NgL00003K99rp" type="text">
+
+<label>Registration Date</label>
+<input id="00NgL00003K99ob" name="00NgL00003K99ob" type="date">
+
+<label>Course Name</label>
+<input id="00NgL00003K9APh" maxlength="15" name="00NgL00003K9APh" type="text">
+
+<label>Phone</label>
+<input id="phone" maxlength="40" name="phone" type="text">
+
+<button type="submit">Register</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

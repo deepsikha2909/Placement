@@ -1,0 +1,6 @@
+/* Truncate long descriptions to a single line with broad browser support */
+.line-clamp-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

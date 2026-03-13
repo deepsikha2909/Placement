@@ -1,0 +1,89 @@
+<!--
+  LWC: courseList
+  Displays up to {maxItems} ACTIVE courses sorted by Name ASC on Experience Cloud Home.
+  Uses Apex (with sharing, user-mode) for guest-safe access. SLDS card with loading/empty/error states.
+-->
+<template>
+  <article class="slds-card">
+    <div class="slds-card__header slds-grid">
+      <header class="slds-media slds-media_center slds-has-flexi-truncate">
+        <div class="slds-media__figure">
+          <span class="slds-icon_container slds-icon-standard-education" title="Courses">
+            <svg class="slds-icon slds-icon_small" aria-hidden="true">
+              <use xlink:href="/_slds/icons/standard-sprite/svg/symbols.svg#education"></use>
+            </svg>
+          </span>
+        </div>
+        <div class="slds-media__body">
+          <h2 class="slds-card__header-title">
+            <span class="slds-text-heading_small">Courses</span>
+          </h2>
+        </div>
+      </header>
+    </div>
+
+    <div class="slds-card__body slds-card__body_inner">
+      <template if:true={isLoading}>
+        <lightning-spinner size="small" alternative-text="Loading courses"></lightning-spinner>
+      </template>
+
+      <template if:true={error}>
+        <div class="slds-text-color_error slds-m-bottom_small">
+          {errorMessage}
+        </div>
+      </template>
+
+      <template if:true={hasCourses}>
+        <ul class="slds-has-dividers_around-space">
+          <template for:each={courses} for:item="c">
+            <li key={c.id} class="slds-item">
+              <div class="slds-p-vertical_x-small">
+                <!-- 1st line: Course Name (clickable) -->
+                <div class="slds-text-heading_small">
+                  <a href="javascript:void(0)" class="slds-text-link" data-id={c.id} onclick={handleNavigate}>
+                    {c.name}
+                  </a>
+                </div>
+
+                <!-- 2nd line: Course Status -->
+                <template if:true={c.courseStatus}>
+                  <div class="slds-m-top_xxx-small slds-text-color_success slds-text-body_small">
+                    {c.courseStatus}
+                  </div>
+                </template>
+
+                <!-- 3rd line: Description -->
+                <template if:true={c.courseDescription}>
+                  <div class="slds-m-top_xxx-small slds-text-color_weak">
+                    {c.courseDescription}
+                  </div>
+                </template>
+              </div>
+            </li>
+          </template>
+        </ul>
+      </template>
+
+      <template if:false={hasCourses}>
+        <template if:false={isLoading}>
+          <p class="slds-text-color_weak">No courses to display.</p>
+        </template>
+      </template>
+    </div>
+
+    <footer class="slds-card__footer">
+      <span>Showing up to {maxItems} course(s)</span>
+    </footer>
+  </article>
+
+  <!-- registration form that redirects to thank-you page -->
+  <section class="slds-m-top_medium">
+    <h3>Register for a Course</h3>
+    <form onsubmit={handleFormSubmit} class="slds-form_stacked">
+      <lightning-input name="firstName" label="First Name" required></lightning-input>
+      <lightning-input name="lastName" label="Last Name"></lightning-input>
+      <lightning-input name="email" label="Email" type="email" required></lightning-input>
+      <lightning-button type="submit" label="Submit" variant="brand"></lightning-button>
+    </form>
+  </section>
+</template>

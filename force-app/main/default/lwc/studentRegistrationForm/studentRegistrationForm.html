@@ -1,0 +1,83 @@
+<template>
+    <div class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <span class="slds-text-heading_small">Student Registration</span>
+                    </h2>
+                </div>
+            </header>
+        </div>
+        
+        <div class="slds-card__body slds-card__body_inner">
+            <template if:true={isLoading}>
+                <lightning-spinner size="medium" alternative-text="Loading registration form"></lightning-spinner>
+            </template>
+            
+            <template if:false={isLoading}>
+                <template if:true={showSuccessMessage}>
+                    <div class="slds-notify slds-notify_success">
+                        <span class="slds-assistive-text">Success</span>
+                        <h2>Registration Successful!</h2>
+                        <p>You have been successfully registered for the course.</p>
+                    </div>
+                </template>
+                
+                <template if:false={showSuccessMessage}>
+                    <div class="slds-form_horizontal">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="studentId">Student</label>
+                            <div class="slds-form-element__control">
+                                <lightning-combobox 
+                                    id="studentId"
+                                    value={selectedStudentId}
+                                    placeholder="Select Student"
+                                    options={students}
+                                    onchange={handleStudentChange}>
+                                </lightning-combobox>
+                            </div>
+                        </div>
+                        
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="courseType">Course Type</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="courseType" class="slds-input" value={courseType} onchange={handleCourseTypeChange} />
+                            </div>
+                        </div>
+                        
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="courseName">Course Name</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="courseName" class="slds-input" value={courseName} onchange={handleCourseNameChange} />
+                            </div>
+                        </div>
+                        
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="registrationDate">Registration Date</label>
+                            <div class="slds-form-element__control">
+                                <lightning-input 
+                                    type="date" 
+                                    id="registrationDate" 
+                                    value={registrationDate}
+                                    onchange={handleRegistrationDateChange}>
+                                </lightning-input>
+                            </div>
+                        </div>
+                        
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <lightning-button 
+                                    label="Register" 
+                                    variant="brand" 
+                                    onclick={handleRegister}
+                                    disabled={isRegisterButtonDisabled}>
+                                </lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </div>
+</template>

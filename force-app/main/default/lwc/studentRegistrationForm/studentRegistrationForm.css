@@ -1,0 +1,11 @@
+.slds-card {
+    margin: 1rem;
+}
+
+.slds-form_horizontal .slds-form-element {
+    margin-bottom: 1rem;
+}
+
+.slds-form_horizontal .slds-form-element__label {
+    font-weight: bold;
+}
