@@ -44,14 +44,6 @@ background:#005bb5;
 }
 </style>
 
-<script>
-function submitForm(event) {
-  event.preventDefault();
-  // Redirect to thank you page
-  window.location.href = 'thankyou.html';
-}
-</script>
-
 </head>
 
 <body>
@@ -60,7 +52,7 @@ function submitForm(event) {
 
 <h2>Course Registration</h2>
 
-<form onsubmit="submitForm(event)">
+<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
 
 <input type="hidden" name="oid" value="00DgL00000K24ap">
 <input type="hidden" name="retURL" value="thankyou.html">
