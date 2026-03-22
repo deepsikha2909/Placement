@@ -6,41 +6,60 @@
 
 <style>
 body{
-font-family: Arial;
-background:#f2f2f2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #dfe9f3, #ffffff);
 }
 
 .container{
-width:400px;
-margin:80px auto;
-background:white;
-padding:30px;
-border-radius:8px;
-box-shadow:0px 0px 10px gray;
+    width: 420px;
+    margin: 60px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
 }
 
 h2{
-text-align:center;
+    text-align:center;
+    margin-bottom:20px;
+    color:#333;
+}
+
+label{
+    font-size:14px;
+    font-weight:600;
+    color:#444;
 }
 
 input{
-width:100%;
-padding:8px;
-margin:8px 0;
+    width:100%;
+    padding:10px;
+    margin:6px 0 15px 0;
+    border-radius:6px;
+    border:1px solid #ccc;
+    transition:0.3s;
+}
+
+input:focus{
+    border-color:#0073e6;
+    outline:none;
+    box-shadow:0 0 5px rgba(0,115,230,0.3);
 }
 
 button{
-width:100%;
-padding:10px;
-background:#0073e6;
-color:white;
-border:none;
-font-size:16px;
-cursor:pointer;
+    width:100%;
+    padding:12px;
+    background: linear-gradient(to right, #0073e6, #005bb5);
+    color:white;
+    border:none;
+    font-size:16px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:0.3s;
 }
 
 button:hover{
-background:#005bb5;
+    background: linear-gradient(to right, #005bb5, #003f8a);
 }
 </style>
 
@@ -52,35 +71,40 @@ background:#005bb5;
 
 <h2>Course Registration</h2>
 
-<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DgL00000K24ap" method="POST">
 
+<!-- Hidden Fields -->
 <input type="hidden" name="oid" value="00DgL00000K24ap">
 <input type="hidden" name="retURL" value="https://deepsikha2909.github.io/Placement/thankyou.html">
 <input type="hidden" name="company" value="Student">
 
+<!-- Debug (optional) -->
+<input type="hidden" name="debug" value="1">
+<input type="hidden" name="debugEmail" value="deepsikha1129@gmail.com">
+
 <label>First Name</label>
-<input id="first_name" maxlength="40" name="first_name" type="text" required>
+<input id="first_name" name="first_name" type="text" placeholder="Enter your first name">
 
 <label>Last Name</label>
-<input id="last_name" maxlength="80" name="last_name" type="text" >
+<input id="last_name" name="last_name" type="text" required placeholder="Enter your last name">
 
 <label>Email</label>
-<input id="email" maxlength="80" name="email" type="text">
+<input id="email" name="email" type="email" placeholder="Enter your email">
+
+<label>Phone</label>
+<input id="phone" name="phone" type="text" placeholder="Enter your phone number">
 
 <label>Roll Number</label>
-<input id="00NgL00003K981J" maxlength="15" name="00NgL00003K981J" type="text">
+<input id="00NgL00003K981J" name="00NgL00003K981J" type="text" placeholder="Enter roll number">
 
 <label>Department Name</label>
-<input id="00NgL00003K99rp" maxlength="20" name="00NgL00003K99rp" type="text">
+<input id="00NgL00003K99rp" name="00NgL00003K99rp" type="text" placeholder="Enter department">
+
+<label>Course Name</label>
+<input id="00NgL00003K9APh" name="00NgL00003K9APh" type="text" placeholder="Enter course name">
 
 <label>Registration Date</label>
 <input id="00NgL00003K99ob" name="00NgL00003K99ob" type="date">
-
-<label>Course Name</label>
-<input id="00NgL00003K9APh" maxlength="15" name="00NgL00003K9APh" type="text">
-
-<label>Phone</label>
-<input id="phone" maxlength="40" name="phone" type="text">
 
 <button type="submit">Register</button>
 
